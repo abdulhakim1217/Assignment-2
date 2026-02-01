@@ -30,3 +30,25 @@ function searchMovies() {
     
     const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(query)}`;
     document.getElementById('movie-results').innerHTML = '🎬 Searching for movies...';
+
+ // Fetch movies from OMDb API
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data.Response === 'True') {
+                displayMovies(data.Search);
+            } else {
+                document.getElementById('movie-results').innerHTML = `No movies found. ${data.Error || ''}`;
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+            let errorMessage = 'Error fetching data. ';
+            if (!navigator.onLine) {
+                errorMessage += 'Please check your internet connection.';
+            } else {
+                errorMessage += 'Please try again later.';
+            }
+            document.getElementById('movie-results').innerHTML = `<div class="error-message">${errorMessage}</div>`;
+        });
+}
