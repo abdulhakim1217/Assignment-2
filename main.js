@@ -7,3 +7,10 @@ document.getElementById('search-button').addEventListener('click', searchMovies)
 
 // Event listener for theme toggle
 document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
+
+// Add keyboard support for search
+document.getElementById('search-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        searchMovies();
+    }
+});
