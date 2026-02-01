@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Movie Discovery App</title>
+</head>
+<body>
+    <header>
+        <h1>Movie Discovery</h1>
+        <div class="search-container">
+            <label for="search-input" class="sr-only">Search for movies</label>
+            <input type="text" id="search-input" placeholder="Search for movies..." aria-label="Search for movies">
+            <button id="search-button" aria-label="Search movies">Search</button>
+            <button id="toggle-theme" aria-label="Toggle dark mode">Toggle Dark Mode</button>
+        </div>
+    </header>
+    <main>
+        <section id="movie-results" role="region" aria-label="Movie search results"></section>
+        <section id="watchlist" role="region" aria-label="Personal watchlist">
+            <h2>My Watchlist (this session)</h2>
+            <div id="watchlist-items"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
